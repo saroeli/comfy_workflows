@@ -1,0 +1,755 @@
+{
+  "last_node_id": 17,
+  "last_link_id": 31,
+  "nodes": [
+    {
+      "id": 2,
+      "type": "CLIPSetLastLayer",
+      "pos": [
+        515,
+        130
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2,
+            3
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPSetLastLayer"
+      },
+      "widgets_values": [
+        -1
+      ]
+    },
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -9,
+        -103
+      ],
+      "size": {
+        "0": 395.90142822265625,
+        "1": 133.9044189453125
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            12
+          ],
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1
+          ],
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "juggernautXL_v9Rdphoto2Lightning.safetensors"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "GetImageSize+",
+      "pos": [
+        -144,
+        409
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            14
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            15
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize+"
+      }
+    },
+    {
+      "id": 14,
+      "type": "PreviewImage",
+      "pos": [
+        905,
+        1284
+      ],
+      "size": {
+        "0": 607.5040893554688,
+        "1": 459.3013000488281
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 30
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        930,
+        460
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            22
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        2551,
+        122
+      ],
+      "size": [
+        1070.2387277343755,
+        774.5963062072757
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "VAEDecode",
+      "pos": [
+        2253,
+        -108
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 9
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 10,
+      "type": "EmptyLatentImage",
+      "pos": [
+        316,
+        384
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 14,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 15,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            21
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        2104,
+        1104,
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [
+        930,
+        130
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "architectural photo of residential buildings,\neach building facade painted with a different scandinavian colour\non a crowded street\nsunny day"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "ControlNetLoader",
+      "pos": [
+        666,
+        748
+      ],
+      "size": {
+        "0": 400.5160217285156,
+        "1": 64.84219360351562
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "links": [
+            16
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetLoader"
+      },
+      "widgets_values": [
+        "diffusers_xl_canny_full.safetensors"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "LoadImage",
+      "pos": [
+        -299,
+        788
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20,
+            29
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "200 (5).png",
+        "image"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [
+        1503,
+        639
+      ],
+      "size": {
+        "0": 315,
+        "1": 166
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 23
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 22
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 16
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            24
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            25
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "widgets_values": [
+        0.5,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "type": "KSampler",
+      "pos": [
+        1936,
+        133
+      ],
+      "size": {
+        "0": 315,
+        "1": 262
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 12
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 24
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 25
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            9
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        896471062690114,
+        "randomize",
+        10,
+        4,
+        "dpmpp_sde",
+        "karras",
+        1
+      ]
+    },
+    {
+      "id": 15,
+      "type": "Canny",
+      "pos": [
+        396,
+        1002
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            30,
+            31
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Canny"
+      },
+      "widgets_values": [
+        0.05,
+        0.5
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      1,
+      2,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      2,
+      0,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      8,
+      7,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      5,
+      0,
+      7,
+      0,
+      "LATENT"
+    ],
+    [
+      12,
+      1,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      13,
+      1,
+      2,
+      7,
+      1,
+      "VAE"
+    ],
+    [
+      14,
+      16,
+      0,
+      10,
+      0,
+      "INT"
+    ],
+    [
+      15,
+      16,
+      1,
+      10,
+      1,
+      "INT"
+    ],
+    [
+      16,
+      11,
+      0,
+      12,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      20,
+      13,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      10,
+      0,
+      5,
+      3,
+      "LATENT"
+    ],
+    [
+      22,
+      4,
+      0,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      23,
+      3,
+      0,
+      12,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      24,
+      12,
+      0,
+      5,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      25,
+      12,
+      1,
+      5,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      29,
+      13,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      30,
+      15,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      15,
+      0,
+      12,
+      3,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
