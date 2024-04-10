@@ -1,46 +1,7 @@
 {
-  "last_node_id": 25,
-  "last_link_id": 40,
+  "last_node_id": 38,
+  "last_link_id": 51,
   "nodes": [
-    {
-      "id": 1,
-      "type": "LoadImage",
-      "pos": [
-        335,
-        196
-      ],
-      "size": {
-        "0": 320,
-        "1": 314
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            20
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "ComfyUI_temp_uohqb_00010_.png",
-        "image"
-      ]
-    },
     {
       "id": 13,
       "type": "CR Upscale Image",
@@ -53,7 +14,7 @@
         "1": 222
       },
       "flags": {},
-      "order": 3,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -104,7 +65,7 @@
         "1": 635.5071411132812
       },
       "flags": {},
-      "order": 7,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -129,7 +90,7 @@
         "1": 179.7333221435547
       },
       "flags": {},
-      "order": 5,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -171,7 +132,7 @@
         "1": 116.60136413574219
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
@@ -224,7 +185,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 13,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -265,7 +226,7 @@
         "1": 485.9859619140625
       },
       "flags": {},
-      "order": 12,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -290,7 +251,7 @@
         "1": 115.21931457519531
       },
       "flags": {},
-      "order": 4,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -332,7 +293,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 6,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -374,7 +335,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 10,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -416,7 +377,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 9,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -456,7 +417,7 @@
         "1": 314.0000305175781
       },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
@@ -490,12 +451,12 @@
         3326.62156282836,
         1561.7036433660924
       ],
-      "size": [
-        545.1927809216404,
-        393.4364894464079
-      ],
+      "size": {
+        "0": 545.1928100585938,
+        "1": 393.4364929199219
+      },
       "flags": {},
-      "order": 14,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -523,7 +484,7 @@
         "1": 262
       },
       "flags": {},
-      "order": 11,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -583,7 +544,7 @@
         "1": 262
       },
       "flags": {},
-      "order": 8,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -637,6 +598,359 @@
       ],
       "color": "#322",
       "bgcolor": "#533"
+    },
+    {
+      "id": 36,
+      "type": "PreviewImage",
+      "pos": [
+        3646.8450838281024,
+        193.04559705378796
+      ],
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 45,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 37,
+      "type": "UltimateSDUpscale",
+      "pos": [
+        3268.845083828102,
+        189.04559705378796
+      ],
+      "size": {
+        "0": 315,
+        "1": 614
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 46
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 47
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 48
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 49
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 50
+        },
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 51,
+          "slot_index": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            45
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltimateSDUpscale"
+      },
+      "widgets_values": [
+        4,
+        575003219112816,
+        "randomize",
+        50,
+        2,
+        "dpmpp_2m",
+        "karras",
+        0.12,
+        "Linear",
+        512,
+        512,
+        8,
+        32,
+        "None",
+        1,
+        64,
+        8,
+        16,
+        true,
+        false
+      ]
+    },
+    {
+      "id": 38,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        2880.845083828103,
+        526.0455970537878
+      ],
+      "size": {
+        "0": 315,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            51
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4x-UltraSharp.pth"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2894.845083828102,
+        158.04559705378801
+      ],
+      "size": {
+        "0": 422.84503173828125,
+        "1": 164.31304931640625
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 43,
+          "name": "clip",
+          "type": "CLIP",
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "label": "条件",
+          "links": [
+            48
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "4k hd resolution"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2892.845083828102,
+        211.045597053788
+      ],
+      "size": {
+        "0": 425.27801513671875,
+        "1": 180.6060791015625
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 44,
+          "name": "clip",
+          "type": "CLIP",
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "label": "条件",
+          "links": [
+            49
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 34,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        2461.845083828103,
+        206.045597053788
+      ],
+      "size": {
+        "0": 315,
+        "1": 122
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            47
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            43,
+            44
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            50
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "photon_v1.safetensors"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "LoadImage",
+      "pos": [
+        2468.8450838281024,
+        434.04559705378796
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            46
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "2024-04-10 21_35_47-Window (1).png",
+        "1024@607"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        344,
+        202
+      ],
+      "size": {
+        "0": 320,
+        "1": 314
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_temp_uohqb_00010_.png",
+        "image"
+      ]
     }
   ],
   "links": [
@@ -807,6 +1121,78 @@
       25,
       0,
       "IMAGE"
+    ],
+    [
+      43,
+      34,
+      1,
+      32,
+      0,
+      "CLIP"
+    ],
+    [
+      44,
+      34,
+      1,
+      33,
+      0,
+      "CLIP"
+    ],
+    [
+      45,
+      37,
+      0,
+      36,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      35,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      47,
+      34,
+      0,
+      37,
+      1,
+      "MODEL"
+    ],
+    [
+      48,
+      32,
+      0,
+      37,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      49,
+      33,
+      0,
+      37,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      50,
+      34,
+      2,
+      37,
+      4,
+      "VAE"
+    ],
+    [
+      51,
+      38,
+      0,
+      37,
+      5,
+      "UPSCALE_MODEL"
     ]
   ],
   "groups": [
@@ -817,6 +1203,30 @@
         1021,
         3592,
         1397
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "ultimate sd upscale",
+      "bounding": [
+        2421,
+        -9,
+        1465,
+        916
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    },
+    {
+      "title": "CR Scale",
+      "bounding": [
+        324,
+        45,
+        1700,
+        868
       ],
       "color": "#3f789e",
       "font_size": 24,
